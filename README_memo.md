@@ -55,7 +55,29 @@ https://qiita.com/shosho/items/93cbff79376c41c3a30b#channelsphp
 
 ## 起動
 
-Laravel 内蔵の Web サーバで起動する
+### MySQL(Docker)
+
+```sh
+cd {PROJECT_ROOT}
+docker-compose up -d
+```
+
+停止するときは
+
+```sh
+docker-compose down
+```
+
+#### 参考: コマンドラインで MySQL に接続
+
+```sh
+mysql -h 127.0.0.1 -u homestead -p
+> Enter password:
+```
+
+パスワードは`.env`の`DB_PASSWORD`を参照。
+
+### Laravel 内蔵の Web サーバを起動
 
 ```sh
 php artisan serve
