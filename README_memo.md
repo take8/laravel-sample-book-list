@@ -64,6 +64,8 @@ php artisan serve
 
 ## マイグレーション
 
+### テーブル作成
+
 ```sh
 php artisan make:migration create_books_table --create=books
 ```
