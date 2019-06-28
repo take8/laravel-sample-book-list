@@ -91,3 +91,9 @@ php artisan serve
 ```sh
 php artisan make:migration create_books_table --create=books
 ```
+
+### マイグレーション実行
+
+```sh
+php artisan migrate
+```
