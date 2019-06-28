@@ -97,3 +97,9 @@ php artisan make:migration create_books_table --create=books
 ```sh
 php artisan migrate
 ```
+
+## モデルの追加
+
+```sh
+php artisan make:model Book
+```
