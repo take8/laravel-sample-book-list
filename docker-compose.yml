@@ -1,0 +1,19 @@
+version: "3"
+services:
+  db:
+    image: mysql:5.7.26
+    environment:
+      MYSQL_DATABASE: homestead
+      MYSQL_USER: homestead
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      TZ: "Asia/Tokyo"
+    # ref: https://blog.tes.co.jp/entry/2018/07/09/100555
+    command: --innodb-use-native-aio=0
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker/mysql:/etc/mysql/conf.d
+      # 以下の場所に永続化されるっぽい
+      - ./tmp/db/mysql/volumes:/var/lib/mysql
