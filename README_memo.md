@@ -42,7 +42,7 @@ https://qiita.com/shosho/items/93cbff79376c41c3a30b#channelsphp
 ├── database       ... データベース関連のファイル(マイグレーション、シード)
 ├── package.json
 ├── phpunit.xml
-├── public         ... 全てのリクエストのエントリーポイント(index.php)や静的ファイル(css, js, 画像, faviconなど)
+├── public         ... 全てのリクエストのエントリーポイント(index.php), 静的ファイル(css, js, 画像, faviconなど), レイアウトファイル
 ├── readme.md
 ├── resources      ... ビューテンプレート、多言語対応時のラベルの文字列など
 ├── routes         ... ルーティング
