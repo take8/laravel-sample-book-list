@@ -52,3 +52,12 @@ https://qiita.com/shosho/items/93cbff79376c41c3a30b#channelsphp
 ├── vendor         ... 外部ライブラリ
 └── webpack.mix.js
 ```
+
+## 起動
+
+Laravel 内蔵の Web サーバで起動する
+
+```sh
+php artisan serve
+> Laravel development server started: <http://127.0.0.1:8000>
+```
