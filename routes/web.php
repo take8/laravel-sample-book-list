@@ -19,9 +19,14 @@ use Illuminate\Http\Request;
 //     return view('books');
 // });
 
+// ブラウザからアクセスされた場合
 Route::group(['middleware' => ['web']], function() {
     Route::get('/', function() {
-        echo "Hello Laravel!";
+        // booksテーブルを参照する(Railsのアクティブレコードのイメージ)
+        $books = Book::all();
+        return view('books', [
+            'books' => $books
+        ]);
     });
 
     Route::post('/books', function() {
