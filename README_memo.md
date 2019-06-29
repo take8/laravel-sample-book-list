@@ -103,3 +103,15 @@ php artisan migrate
 ```sh
 php artisan make:model Book
 ```
+
+## blade メモ
+
+### ディレクティブ
+
+@if
+@endif
+
+@extends ... extends で指定したファイルを継承する。extends された側で@yield したキーワードを@section で置換できる
+@section
+
+@include ... 部分テンプレートとして読み込む
