@@ -13,6 +13,7 @@ composer create-project "laravel/laravel=5.7.*" bookapp
 ```
 
 ???: 学習動画と異なり、 application key が表示されなかった。バージョンアップで動作が変わったのかも。  
+--> `.env`に書いてあるものがそれっぽい    
 参考: 最後の方に以下のようなコマンド実行が書いてあった。
 
 ```sh
@@ -115,3 +116,16 @@ php artisan make:model Book
 @section
 
 @include ... 部分テンプレートとして読み込む
+
+## ログイン認証機能の追加
+
+ありがちな機能なので、標準で簡単に組み込めるようになっている。
+
+```sh
+php artisan make:auth
+
+# 参考: viewだけ追加する場合
+php artisan make:auth --views
+```
+
+`users`, `password_resets`テーブルはプロジェクト生成時にデフォルトでマイグレーションされている。

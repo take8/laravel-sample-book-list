@@ -21,15 +21,16 @@ use Illuminate\Http\Request;
 
 // ブラウザからアクセスされた場合
 Route::group(['middleware' => ['web']], function() {
-    Route::get('/', function() {
+    // Routeファサード
+    Route::get('/', ['middleware' => 'auth', function() {
         // booksテーブルを参照する(Railsのアクティブレコードのイメージ)
         $books = Book::all();
         return view('books', [
             'books' => $books
         ]);
-    });
+    }]);
 
-    Route::post('/books', function(Request $request) {
+    Route::post('/books', ['middleware' => 'auth', function(Request $request) {
         // バリデータの生成
         $validator = Validator::make($request->all(), [
             'title' => 'required|max:255',
@@ -47,13 +48,17 @@ Route::group(['middleware' => ['web']], function() {
         $book->save();
 
         return redirect('/');
-    });
+    }]);
 
     // Implicit Binding(Laravel 5.2から)
     // {book}はIDが入る。引数の$bookにはそのIDが該当するBookが入る。
-    Route::delete('/books/{book}', function(Book $book) {
+    Route::delete('/books/{book}', ['middleware' => 'auth', function(Book $book) {
         $book->delete();
 
         return redirect('/');
-    });
+    }]);
 });
+
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
