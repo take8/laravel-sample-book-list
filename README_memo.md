@@ -115,3 +115,14 @@ php artisan make:model Book
 @section
 
 @include ... 部分テンプレートとして読み込む
+
+## ログイン認証機能の追加
+
+ありがちな機能なので、標準で簡単に組み込めるようになっている。
+
+```sh
+php artisan make:auth
+
+# 参考: viewだけ追加する場合
+php artisan make:auth --views
+```
