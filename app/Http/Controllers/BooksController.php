@@ -8,6 +8,16 @@ use Illuminate\Http\Request;
 class BooksController extends Controller
 {
     /**
+     * 新しいインスタンスの生成
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * 一覧
      *
      * @return Response

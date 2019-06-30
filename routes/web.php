@@ -22,13 +22,13 @@ use Illuminate\Http\Request;
 // ブラウザからアクセスされた場合
 Route::group(['middleware' => ['web']], function() {
     // Routeファサード
-    Route::get('/', 'BooksController@index')->middleware('auth');
+    Route::get('/', 'BooksController@index');
 
-    Route::post('/books', 'BooksController@store')->middleware('auth');
+    Route::post('/books', 'BooksController@store');
 
     // Implicit Binding(Laravel 5.2から)
     // {book}はIDが入る。クロージャの引数の$bookにはそのIDが該当するBookが入る。
-    Route::delete('/books/{book}', 'BooksController@destroy')->middleware('auth');
+    Route::delete('/books/{book}', 'BooksController@destroy');
 });
 
 Auth::routes();
