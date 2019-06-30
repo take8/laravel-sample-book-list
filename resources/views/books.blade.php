@@ -13,15 +13,15 @@
           @include('common.errors')
 
           <!-- New Book Form -->
-          <form action="/book" method="POST" class="form-horizontal">
+          <form action="/books" method="POST" class="form-horizontal">
             {{ csrf_field() }}
 
-            <!-- Book Name -->
+            <!-- Book Title -->
             <div class="form-group">
               <label for="task-name" class="col-sm-3 control-label">Book</label>
 
               <div class="col-sm-6">
-                <input type="text" name="name" id="book-name" class="form-control" value="{{ old('book') }}">
+                <input type="text" name="title" id="book-title" class="form-control" value="{{ old('book') }}">
               </div>
             </div>
 
