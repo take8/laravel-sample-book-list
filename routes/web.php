@@ -22,41 +22,13 @@ use Illuminate\Http\Request;
 // ブラウザからアクセスされた場合
 Route::group(['middleware' => ['web']], function() {
     // Routeファサード
-    Route::get('/', ['middleware' => 'auth', function() {
-        // booksテーブルを参照する(Railsのアクティブレコードのイメージ)
-        $books = Book::all();
-        return view('books', [
-            'books' => $books
-        ]);
-    }]);
+    Route::get('/', 'BooksController@index')->middleware('auth');
 
-    Route::post('/books', ['middleware' => 'auth', function(Request $request) {
-        // バリデータの生成
-        $validator = Validator::make($request->all(), [
-            'title' => 'required|max:255',
-        ]);
-
-        // バリデーション実行
-        if ($validator->fails()) {
-            return redirect('/')
-                ->withInput()
-                ->withErrors($validator);
-        }
-
-        $book = new Book; // Eloquent ORM: ORMがテーブルとオブジェクトをマッピングしてくれる
-        $book->title = $request->title;
-        $book->save();
-
-        return redirect('/');
-    }]);
+    Route::post('/books', 'BooksController@store')->middleware('auth');
 
     // Implicit Binding(Laravel 5.2から)
-    // {book}はIDが入る。引数の$bookにはそのIDが該当するBookが入る。
-    Route::delete('/books/{book}', ['middleware' => 'auth', function(Book $book) {
-        $book->delete();
-
-        return redirect('/');
-    }]);
+    // {book}はIDが入る。クロージャの引数の$bookにはそのIDが該当するBookが入る。
+    Route::delete('/books/{book}', 'BooksController@destroy')->middleware('auth');
 });
 
 Auth::routes();
