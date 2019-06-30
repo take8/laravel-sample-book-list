@@ -49,7 +49,11 @@ Route::group(['middleware' => ['web']], function() {
         return redirect('/');
     });
 
+    // Implicit Binding(Laravel 5.2から)
+    // {book}はIDが入る。引数の$bookにはそのIDが該当するBookが入る。
     Route::delete('/books/{book}', function(Book $book) {
+        $book->delete();
 
+        return redirect('/');
     });
 });

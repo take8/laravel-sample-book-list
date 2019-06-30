@@ -57,7 +57,7 @@
 
                     <!-- Task Delete Button -->
                     <td>
-                      <form action="/book/{{ $book->id }}" method="POST">
+                      <form action="/books/{{ $book->id }}" method="POST">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
 
